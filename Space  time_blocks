@@ -1,0 +1,173 @@
+with
+ timeblock as
+    (select '0800-0815' as time_block, '01' as time_block_code
+       union all
+     select '0816-0830' as time_block, '02' as time_block_code
+        union all
+     select '0831-0845' as time_block, '03' as time_block_code
+       union all
+     select '0846-0900' as time_block, '04' as time_block_code
+       union all
+     select '0901-0915' as time_block, '05' as time_block_code
+        union all
+     select '0916-0930' as time_block, '06' as time_block_code
+        union all
+     select '0931-0945' as time_block, '07' as time_block_code
+        union all
+     select '0946-1000' as time_block, '08' as time_block_code
+        union all
+     select '1001-1015' as time_block, '09' as time_block_code
+        union all
+     select '1016-1030' as time_block, '10' as time_block_code
+     	union all
+ 	select '1031-1045' as time_block, '11' as time_block_code
+       union all
+     select '1046-1100' as time_block, '12' as time_block_code
+       union all
+     select '1101-1115' as time_block, '13' as time_block_code
+        union all
+     select '1116-1130' as time_block, '14' as time_block_code
+        union all
+     select '1131-1145' as time_block, '15' as time_block_code
+        union all
+     select '1146-1200' as time_block, '16' as time_block_code
+        union all
+     select '1201-1215' as time_block, '17' as time_block_code
+        union all
+     select '1216-1230' as time_block, '18' as time_block_code
+        union all
+     select '1231-1245' as time_block, '19' as time_block_code
+        union all
+     select '1246-1300' as time_block, '20' as time_block_code
+        union all
+     select '1301-1315' as time_block, '21' as time_block_code
+        union all
+     select '1316-1330' as time_block, '22' as time_block_code
+     	union all
+ 	select '1331-1345' as time_block, '23' as time_block_code
+       union all
+     select '1346-1400' as time_block, '24' as time_block_code
+       union all
+     select '1401-1415' as time_block, '25' as time_block_code
+        union all
+     select '1416-1430' as time_block, '26' as time_block_code
+        union all
+     select '1431-1445' as time_block, '27' as time_block_code
+        union all
+     select '1446-1500' as time_block, '28' as time_block_code
+        union all
+     select '1501-1515' as time_block, '29' as time_block_code
+        union all
+     select '1516-1530' as time_block, '30' as time_block_code
+     	union all
+ 	select '1531-1545' as time_block, '31' as time_block_code
+       union all
+     select '1546-1600' as time_block, '32' as time_block_code
+       union all
+     select '1601-1615' as time_block, '33' as time_block_code
+        union all
+     select '1616-1630' as time_block, '34' as time_block_code
+        union all
+     select '1631-1645' as time_block, '35' as time_block_code
+        union all
+     select '1646-1700' as time_block, '36' as time_block_code
+        union all
+     select '1701-1715' as time_block, '37' as time_block_code
+        union all
+     select '1716-1730' as time_block, '38' as time_block_code
+        union all
+     select '1731-1745' as time_block, '39' as time_block_code
+        union all
+     select '1746-1800' as time_block, '40' as time_block_code
+        union all
+     select '1801-1815' as time_block, '41' as time_block_code
+        union all
+     select '1816-1830' as time_block, '42' as time_block_code
+     	union all
+ 	select '1831-1845' as time_block, '43' as time_block_code
+       union all
+     select '1846-1900' as time_block, '44' as time_block_code
+       union all
+     select '1901-1915' as time_block, '45' as time_block_code
+        union all
+     select '1916-1930' as time_block, '46' as time_block_code
+        union all
+     select '1931-1945' as time_block, '47' as time_block_code
+        union all
+     select '1946-2000' as time_block, '48' as time_block_code
+        union all
+     select '2001-2015' as time_block, '49' as time_block_code
+        union all
+     select '2016-2030' as time_block, '50' as time_block_code
+        union all
+     select '1931-1945' as time_block, '51' as time_block_code
+        union all
+     select '1946-2000' as time_block, '52' as time_block_code
+        union all
+     select '2001-2015' as time_block, '53' as time_block_code
+        union all
+     select '2016-2030' as time_block, '54' as time_block_code
+        union all
+     select '2031-2045' as time_block, '55' as time_block_code
+        union all
+     select '2046-2100' as time_block, '56' as time_block_code
+        union all
+     select '2101-2115' as time_block, '57' as time_block_code
+        union all
+     select '2116-2130' as time_block, '58' as time_block_code
+        union all
+     select '2131-2145' as time_block, '59' as time_block_code
+        union all
+     select '2146-2200' as time_block, '60' as time_block_code
+        union all
+     select '2201-2215' as time_block, '61' as time_block_code
+        union all
+     select '2216-2230' as time_block, '62' as time_block_code
+        union all
+     select '2231-2245' as time_block, '63' as time_block_code
+        union all
+     select '2246-2300' as time_block, '64' as time_block_code
+        union all
+     select '2301-2315' as time_block, '65' as time_block_code
+        union all
+     select '2316-2330' as time_block, '66' as time_block_code
+    )
+
+, rooms as
+    (select distinct m.building_code_inst 
+	   , m.room_code_inst
+	   
+    FROM unc.uncw.dave_buildings_v as b
+   left outer join
+   unc.uncw.dave_rooms_v as r
+   on b.bldg_id = r.bldg_id
+   and b.term = r.term 
+   left outer join 
+   (select distinct d.code 
+   	, d.value 
+   	from unc.uncw.dave_codes as d
+   	where d.code_family = 'Room Use Codes') as dz
+   	on r.room_use_code = dz.code
+   inner join 
+      (select building_code_inst 
+	   , room_code_inst
+	   , building_nbr
+	   , snapshot_term_code
+	   , room_nbr
+	   , snapshot_type_code
+	   from unc.uncw.sdm_section_meeting_mv
+   		where snapshot_term_code = '20226'
+   		) as m
+   		on b.bldg_nbr  = m.building_nbr 
+   and b.term = m.snapshot_term_code
+   and r.room_nbr = m.room_nbr 
+   and m.snapshot_type_code ='1')
+   
+   
+select time_block
+, time_block_code
+, building_code_inst
+, room_code_inst
+from timeblock
+cross join rooms
+order by 3,4,2
